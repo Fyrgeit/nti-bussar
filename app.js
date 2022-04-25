@@ -11,7 +11,7 @@ function reqListener () {
 
 var oReq = new XMLHttpRequest();
 oReq.addEventListener("load", reqListener);
-oReq.open("GET", stopLookupUrl);
+oReq.open("GET", departureUrl);
 oReq.send();
 */
 
@@ -22,3 +22,4 @@ fetch(proxyUrl + departureUrl)
 .then((data) => {
   console.log(data);
 })
+
