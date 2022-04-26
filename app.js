@@ -4,6 +4,9 @@ const departureKey = "8ade30c6140f4c08b5ac38690f524819";
 const departureUrl = `https://api.sl.se/api2/realtimedeparturesv4.json?key=${departureKey}&siteid=9662&timewindow=30`;
 const proxyUrl = "https://cors-anywhere.herokuapp.com/"
 
+/* 
+JavaScriptFetch();
+
 function JavaScriptFetch() {
   var script = document.createElement('script');
   script.src = departureUrl;
@@ -13,9 +16,7 @@ function JavaScriptFetch() {
 function processJSONPResponse(data) {
   console.log(data);
 }
-
-
-
+*/
 
 /* 
 function reqListener () {
@@ -28,7 +29,7 @@ oReq.open("GET", departureUrl);
 oReq.send();
 */
 
-/* 
+
 fetch(departureUrl)
 .then((response) => {
   return response.json();
@@ -36,4 +37,4 @@ fetch(departureUrl)
 .then((data) => {
   console.log(data);
 })
- */
+
