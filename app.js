@@ -15,7 +15,7 @@ oReq.open("GET", departureUrl);
 oReq.send();
 */
 
-fetch(proxyUrl + departureUrl)
+fetch(departureUrl)
 .then((response) => {
   return response.json();
 })
