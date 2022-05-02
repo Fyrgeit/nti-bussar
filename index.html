@@ -5,11 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="moment-with-locales.min.js" defer></script>
     <script src="app.js" defer></script>
     <title>Departure Boards</title>
 </head>
-<body id="body">
+<body onload="getDepartures(); setInterval('getDepartures()', 25000 )">
     <h1>Bussar till Odenplan</h1>
-    <h2>från craffe</h2>
+    <div id="main"></div>
 </body>
 </html>
