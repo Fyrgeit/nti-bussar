@@ -9,9 +9,11 @@ const proxyUrl = "https://cors-anywhere.herokuapp.com/"
 const resRobotKey = "b4ef13f2-27ef-4134-a6f4-9b322e9c8f77";
 var stationID = "740021712"
 const departureURL = `https://api.resrobot.se/v2.1/departureBoard?id=${stationID}&format=json&accessId=${resRobotKey}`;
-var stationName = "Högdalen"
+var stationName = "Sabbatsberg"
 const lookupURL = `https://api.resrobot.se/v2.1/location.name?input=${stationName}&format=json&accessId=${resRobotKey}`;
 
+const bodyElement = document.getElementById("body");
+let departures;
 
 fetch(departureURL)
 .then((response) => {
@@ -20,7 +22,7 @@ fetch(departureURL)
 .then((data) => {
   console.log("Departures:");
   console.log(data.Departure);
-  let departures = data.Departure;
+  departures = data.Departure;
 })
 
 fetch(lookupURL)
@@ -32,3 +34,8 @@ fetch(lookupURL)
   console.log(data.stopLocationOrCoordLocation[0].StopLocation.extId);
 })
 
+let departureElement = document.createElement("p");
+if (departures != null) { 
+  departureElement.innerHTML = departures[0].direction;
+}
+bodyElement.append(departureElement);
