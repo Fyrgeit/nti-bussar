@@ -28,6 +28,7 @@ h1 {
     align-items: center;
     margin: 0.4em;
     padding: 0.4em;
+    border-radius: 0.6em;
 }
 
 .line {
@@ -36,7 +37,6 @@ h1 {
     border-radius: 0.3em;
     font-weight: 700;
     background-color: red;
-
 }
 
 .time {
