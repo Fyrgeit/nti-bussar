@@ -26,21 +26,15 @@ function getDepartures() {
   .then((data) => {
     let rawDeps = data.Departure;
     
-    console.log("Departures:");
-    console.log(rawDeps);
-    
     rawDeps.forEach(element => {
       if (element.directionFlag == "2") {
         departures.push(element);
       }
     });
-    
-    console.log(departures);
 
     mainElement.innerHTML = '';
     
     for (let index = 0; index < Math.min(departures.length, 5); index++) {
-      
       const element = departures[index];
       
       let newDepartureElement = document.createElement("div");
@@ -61,10 +55,8 @@ function getDepartures() {
       newDepartureElement.append(newLineElement);
       newDepartureElement.append(newTimeElement);
       mainElement.append(newDepartureElement);
-      
     }
   });
-  
 }
 
 /*
