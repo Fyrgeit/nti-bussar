@@ -43,3 +43,15 @@ h1 {
     font-size: 1.2em;
     margin-left: 0.4em;
 }
+
+#link {
+    text-align: center;
+}
+
+a {
+    color: white;
+}
+
+a:hover {
+    color: gray;
+}
