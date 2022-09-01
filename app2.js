@@ -5,7 +5,7 @@ function getDepartures() {
   const stationName = "Odenplan";
   const lookupURL = `https://api.resrobot.se/v2.1/location.name?input=${stationName}&format=json&accessId=${resRobotKey}`;
 
-  let mainElement = document.getElementById("main");
+  let mainElement = document.getElementById("center");
 
   let departures = [];
 

@@ -6,7 +6,7 @@ function getDepartures() {
   const stationName = "Tegnérgatan"
   const lookupURL = `https://api.resrobot.se/v2.1/location.name?input=${stationName}&format=json&accessId=${resRobotKey}`;
   
-  let mainElement = document.getElementById("main");
+  let mainElement = document.getElementById("center");
   
   let departures = [];
   
@@ -19,6 +19,8 @@ function getDepartures() {
   .then((data) => {
     let rawDeps = data.Departure;
     
+    console.log(rawDeps);
+
     rawDeps.forEach(element => {
       if (element.directionFlag == "2") {
         departures.push(element);
