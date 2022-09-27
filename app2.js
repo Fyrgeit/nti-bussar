@@ -12,44 +12,45 @@ function getDepartures() {
   moment.locale("sv");
 
   fetch(departureURL)
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      let rawDeps = data.Departure;
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    let rawDeps = data.Departure;
 
-      rawDeps.forEach((element) => {
-        if (
-          (element.name == "Länstrafik - Buss 53" ||
-            element.name == "Länstrafik - Buss 61") &&
-          element.directionFlag == "1"
-        ) {
-          departures.push(element);
-        }
-      });
-
-      mainElement.innerHTML = "";
-
-      for (let index = 0; index < Math.min(departures.length, 5); index++) {
-        const element = departures[index];
-
-        let newDepartureElement = document.createElement("div");
-        newDepartureElement.classList.add("departure");
-        let newLineElement = document.createElement("p");
-        newLineElement.classList.add("line");
-        let newTimeElement = document.createElement("p");
-        newTimeElement.classList.add("time");
-
-        let line = element.Product[0].line;
-        let time = element.time;
-        if (element.rtTime != undefined) time = element.rtTime;
-
-        newLineElement.innerHTML = line;
-        newTimeElement.innerHTML = moment(time, "hh:mm:ss").fromNow();
-
-        newDepartureElement.append(newLineElement);
-        newDepartureElement.append(newTimeElement);
-        mainElement.append(newDepartureElement);
+    rawDeps.forEach((element) => {
+      if (
+        (element.name == "Länstrafik - Buss 53" ||
+          element.name == "Länstrafik - Buss 61") &&
+        element.directionFlag == "1"
+      ) {
+        departures.push(element);
       }
     });
+
+    mainElement.innerHTML = "";
+
+    for (let index = 0; index < Math.min(departures.length, 5); index++) {
+      const element = departures[index];
+
+      let newDepartureElement = document.createElement("div");
+      newDepartureElement.classList.add("departure");
+      let newLineElement = document.createElement("p");
+      newLineElement.classList.add("line");
+      let newTimeElement = document.createElement("p");
+      newTimeElement.classList.add("time");
+
+      let line = element.Product[0].line;
+      let time = element.time;
+      if (element.rtTime != undefined)
+      time = element.rtTime;
+
+      newLineElement.innerHTML = line;
+      newTimeElement.innerHTML = moment(time, "hh:mm:ss").fromNow();
+
+      newDepartureElement.append(newLineElement);
+      newDepartureElement.append(newTimeElement);
+      mainElement.append(newDepartureElement);
+    }
+  });
 }

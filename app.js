@@ -1,5 +1,4 @@
 function getDepartures() {
-
   const resRobotKey = "b4ef13f2-27ef-4134-a6f4-9b322e9c8f77";
   const stationID = "740046062"
   const departureURL = `https://api.resrobot.se/v2.1/departureBoard?id=${stationID}&duration=60&format=json&accessId=${resRobotKey}`;
@@ -18,8 +17,6 @@ function getDepartures() {
   })
   .then((data) => {
     let rawDeps = data.Departure;
-    
-    console.log(rawDeps);
 
     rawDeps.forEach(element => {
       if (element.directionFlag == "2") {

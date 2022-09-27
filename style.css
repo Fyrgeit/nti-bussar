@@ -34,6 +34,26 @@ h1 {
     margin: 0.3em;
 }
 
+.bottomImage {
+    display: none;
+    width: 30vh;
+    height: 34vh;
+    border-radius: 0.3em;
+    margin: 0.3em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (max-width: 794px) {
+    .image {
+        display: none;
+    }
+
+    .bottomImage {
+        display: block;
+    }
+}
+
 .departure {
     background-color: #283747;
     display: flex;
