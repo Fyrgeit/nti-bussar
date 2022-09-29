@@ -1,7 +1,7 @@
-function getDepartures() {
+function getDepartures(dir) {
   const resRobotKey = "b4ef13f2-27ef-4134-a6f4-9b322e9c8f77";
-  const stationID = "740046062"
-  const departureURL = `https://api.resrobot.se/v2.1/departureBoard?id=${stationID}&duration=60&format=json&accessId=${resRobotKey}`;
+  const stationIDs = ["740046062", "740098559"];
+  const departureURL = `https://api.resrobot.se/v2.1/departureBoard?id=${stationIDs[dir]}&duration=60&format=json&accessId=${resRobotKey}`;
   const stationName = "Tegnérgatan"
   const lookupURL = `https://api.resrobot.se/v2.1/location.name?input=${stationName}&format=json&accessId=${resRobotKey}`;
   
@@ -18,11 +18,26 @@ function getDepartures() {
   .then((data) => {
     let rawDeps = data.Departure;
 
-    rawDeps.forEach(element => {
-      if (element.directionFlag == "2") {
-        departures.push(element);
-      }
-    });
+    if (dir == 0) { 
+      rawDeps.forEach(element => {
+        if (element.directionFlag == "2") {
+          departures.push(element);
+        }
+      });
+    }
+    else if (dir == 1) {
+      rawDeps.forEach((element) => {
+        if (
+          (element.name == "Länstrafik - Buss 53" ||
+            element.name == "Länstrafik - Buss 61") &&
+          element.directionFlag == "1"
+        ) {
+          departures.push(element);
+        }
+      });
+    }
+
+    //console.log(departures);
 
     mainElement.innerHTML = '';
     
@@ -43,6 +58,9 @@ function getDepartures() {
       
       newLineElement.innerHTML = line;
       newTimeElement.innerHTML = moment(time, "hh:mm:ss").fromNow();
+      
+      if (element.rtTime != undefined)
+        newTimeElement.innerHTML += '*';
       
       newDepartureElement.append(newLineElement);
       newDepartureElement.append(newTimeElement);
