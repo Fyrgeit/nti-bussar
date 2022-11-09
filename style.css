@@ -88,3 +88,7 @@ a {
 a:hover {
     color: gray;
 }
+
+img#loading {
+    width: 5rem;
+}

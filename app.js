@@ -1,4 +1,6 @@
 function getDepartures(dir) {
+  initLoad();
+  
   const resRobotKey = "b4ef13f2-27ef-4134-a6f4-9b322e9c8f77";
   const stationIDs = ["740046062", "740098559"];
   const departureURL = `https://api.resrobot.se/v2.1/departureBoard?id=${stationIDs[dir]}&duration=60&format=json&accessId=${resRobotKey}`;
@@ -67,4 +69,13 @@ function getDepartures(dir) {
       mainElement.append(newDepartureElement);
     }
   });
+}
+
+function initLoad() {
+  let loadingIcon = document.createElement("img");
+  loadingIcon.setAttribute("src", "loading.gif");
+  loadingIcon.setAttribute("id", "loading");
+
+  let center = document.getElementById("center");
+  center.append(loadingIcon);
 }
