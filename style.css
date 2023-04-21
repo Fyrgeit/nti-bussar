@@ -3,19 +3,19 @@
 * {
     padding: 0;
     margin: 0;
+    font-size: 5vh;
+    font-family: 'Roboto', sans-serif;
+    color: white;
 }
 
 body {
     background-color: #34495E;
-    font-family: 'Roboto', sans-serif;
-    font-size: 5vh;
-    color: white;
 }
 
 h1 {
     text-align: center;
-    margin: 0.2em;
-    font-size: 1.5em;
+    margin: 0.2rem;
+    font-size: 1.5rem;
 }
 
 #center {
@@ -32,21 +32,21 @@ h1 {
     background-color: #283747;
     display: flex;
     align-items: center;
-    margin: 0.3em;
-    padding: 0.3em;
-    border-radius: 0.5em;
+    margin: 0.3rem;
+    padding: 0.3rem;
+    border-radius: 0.5rem;
 }
 
 .line {
     display: inline-block;
-    padding: 0.1em 0.3em;
-    border-radius: 0.3em;
+    padding: 0.1rem 0.3rem;
+    border-radius: 0.3rem;
     font-weight: 700;
     background-color: red;
 }
 
 .time {
-    margin-left: 0.4em;
+    margin-left: 0.4rem;
 }
 
 #link {
@@ -54,18 +54,23 @@ h1 {
     display: flex;
     width: fit-content;
     margin: auto;
-    padding: 0.2em;
-    border-radius: 0.5em;
+    padding: 0.2rem;
+    border-radius: 0.5rem;
 }
 
 img#loading {
-    margin-top: 0.3em;
-    width: 5rem;
+    margin-top: 0.3rem;
+    width: 2rem;
 }
 
-#bottom {
-    font-size: 0.5em;
+.bottom, .bottom * {
+    max-width: 70ch;
+    font-size: 0.5rem;
     margin: auto;
     text-align: center;
-    margin-top: 0.6em;
+    margin-top: 0.5rem;
+}
+
+.bottom a {
+    color: #69bbe4;
 }
